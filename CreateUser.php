@@ -20,6 +20,7 @@
         echo "<div class='alert alert-danger' role='alert'>";
         echo "<strong>Invalid Username</strong>";
         echo "</div>";
+        die();
     } elseif (($checkUsername->num_rows != 0)) {
         echo "<div class='alert alert-danger' role='alert'>";
         echo "<strong>Username already exists</strong>";
