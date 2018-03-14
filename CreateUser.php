@@ -25,6 +25,7 @@
         echo "<div class='alert alert-danger' role='alert'>";
         echo "<strong>Username already exists</strong>";
         echo "</div>";
+        die();
     }
 
     if ($mysqli->query($insertUsername) === TRUE) {
@@ -32,7 +33,7 @@
     } else {
         echo "Error: " . $insertUsername . "<br>" . $mysqli->error;
     }
-    
+
     $mysqli->close();
 
 ?>
