@@ -7,10 +7,15 @@
         exit();
     }
 
-    $userName = $_POST["userName"];
+    $userName = $_POST['userName'];
+    $allUserNames = "SELECT user_id FROM User";
 
-    if($userName == ""){
-        echo "<div class='alert alert-danger' role='alert'><strong>Invalid Username</strong></div>";
+    if($userName == "" || $userName == $mysq->$allUserNames){
+        echo "<div class='alert alert-danger' role='alert'>";
+        echo "<strong>Invalid Username</strong>";
+        echo "</div>";
+    } else {
+        
     }
 
 
