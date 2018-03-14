@@ -7,7 +7,11 @@
         exit();
     }
 
-    
+    $userName = $_POST["userName"];
+
+    if($userName == ""){
+        echo "<div class='alert alert-danger' role='alert'><strong>Invalid Username</strong></div>";
+    }
 
 
 
