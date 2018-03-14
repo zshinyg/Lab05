@@ -1,5 +1,5 @@
 <?php
-    $mysq = new mysqli("mysql.eecs.ku.edu", "c527g802", "rotaHea4", "c527g802");
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "c527g802", "rotaHea4", "c527g802");
 
     /* check connection */
     if ($mysqli->connect_errno) {
@@ -8,17 +8,27 @@
     }
 
     $userName = $_POST['userName'];
-    $allUserNames = "SELECT user_id FROM User";
+    $query = "SELECT user_id FROM User WHERE user_id = $userName";
+    $checkUsername = $mysqli->query($query);
+    $insertUsername = "INSERT INTO User (user_id)
+    VALUES ($userName)";
 
-    if($userName == "" || $userName == $mysq->$allUserNames){
+    if($userName == ""){
         echo "<div class='alert alert-danger' role='alert'>";
         echo "<strong>Invalid Username</strong>";
         echo "</div>";
-    } else {
-        
+    } elseif (!($checkUsername->num_rows == 0)) {
+        echo "<div class='alert alert-danger' role='alert'>";
+        echo "<strong>Username already exists</strong>";
+        echo "</div>";
     }
 
-
-
+    if ($mysqli->query($insertUsername) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    $mysqli->close();
 
 ?>
