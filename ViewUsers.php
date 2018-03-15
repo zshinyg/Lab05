@@ -2,15 +2,12 @@
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 
-    $servername = "mysql.eecs.ku.edu";
-    $username = "c527g802";
-    $password = "rotaHea4";
-    $dbname = "myDB";
-    //Connect to server
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    //Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    $conn = new mysqli("mysql.eecs.ku.edu", "c527g802", "rotaHea4", "c527g802");
+
+    /* check connection */
+    if ($conn->connect_errno) {
+        printf("Connect failed: %s\n", $conn->connect_error);
+        exit();
     }
 
     $table = "SELECT user_id FROM Users";
