@@ -11,7 +11,8 @@
     }
 
     $userName = $_POST['userName'];
-    $checkUsername = $mysqli->query($query);
+    $queryUser = "SELECT content FROM User WHERE content = '$userName'";
+    $checkUsername = $mysqli->query($queryUser);
     $insertUsername = "INSERT INTO User (user_id)
     VALUES ('$userName')";
 
@@ -38,7 +39,7 @@
         echo "You must post something.";
         die();
     }
-    
+
 
     if ($mysqli->query($insertPost) === TRUE) {
         echo "New user created successfully";
