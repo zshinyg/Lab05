@@ -11,15 +11,13 @@
     }
 
     $userName = $_POST['userName'];
-    $queryUser = "SELECT content FROM User WHERE content = '$userName'";
+    $queryUser = "SELECT user_id FROM Users WHERE user_id = '$userName'";
     $checkUsername = $mysqli->query($queryUser);
-    $insertUsername = "INSERT INTO User (user_id)
-    VALUES ('$userName')";
 
-
+    $postID = "int NOT NULL AUTO_INCREMENT";
     $userPost = $_POST['userPost'];
-    $insertPost = "INSERT INTO Posts (content)
-    VALUES ('$userPost')";
+    $insertPost = "INSERT INTO Posts (post_id, content, author_id)
+    VALUES ('$postID','$userPost', '$userName')";
     $query = "SELECT content FROM Post WHERE content = '$userPost'";
 
 
@@ -42,7 +40,7 @@
 
 
     if ($mysqli->query($insertPost) === TRUE) {
-        echo "New user created successfully";
+        echo "New post created successfully";
     } else {
         echo "Error: " . $insertUsername . "<br>" . $mysqli->error;
     }

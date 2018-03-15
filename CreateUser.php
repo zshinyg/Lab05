@@ -11,9 +11,9 @@
     }
 
     $userName = $_POST['userName'];
-    $query = "SELECT user_id FROM User WHERE user_id = '$userName'";
+    $query = "SELECT user_id FROM Users WHERE user_id = '$userName'";
     $checkUsername = $mysqli->query($query);
-    $insertUsername = "INSERT INTO User (user_id)
+    $insertUsername = "INSERT INTO Users (user_id)
     VALUES ('$userName')";
 
     if($userName == ""){
