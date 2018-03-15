@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Create User</title>
+    <title>Create Post</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,13 +12,19 @@
 
   </head>
   <body>
-    <div class="createUser">
-      <form action="CreateUser.php" method="post">
+    <div class="createPost">
+      <form action="CreatePosts.php" method="post">
         <div class="form-group">
           <div class="col-md-4">
             <label for="userName">User Name</label>
             <input type="text" class="form-control" name="userName" id="userName" placeholder="User Name">
           </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="userPost">Post</label>
+              <textarea class="form-control" name="userPost" id="userPost" rows="5" placeholder="Post Here..."></textarea>
+            </div>
         </div>
         <button type="submit" class="btn btn-secondary">Submit</button>
       </form>
