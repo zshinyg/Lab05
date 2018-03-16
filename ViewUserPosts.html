@@ -15,8 +15,35 @@
         <div class="form-group">
             <label for="userSelect">Select User</label>
             <select class="form-control" name="userSelect" id="userSelect">
-
-
+                <?php 
+                error_reporting(E_ALL);
+                ini_set("display_errors", 1);
+            
+                $conn = new mysqli("mysql.eecs.ku.edu", "c527g802", "rotaHea4", "c527g802");
+            
+                if ($conn->connect_errno) {
+                    printf("Connect failed: %s\n", $conn->connect_error);
+                    exit();
+                }
+            
+                $table = "SELECT user_id FROM Users";
+                $tableResult = $conn->query($table);
+            
+                echo "<link rel='stylesheet' href='styles.css' type='text/css'>";
+            
+            
+                if($tableResult->num_rows > 0){
+                    while($row = $tableResult->fetch_assoc()) {
+                        echo "<option value='$row['user_id']'>";
+                        echo $row['user_id'];
+                        echo "</option>";
+                    }
+                } else {
+                    echo "No usernames have been created.";
+                }
+                            
+                //$conn->close();
+            ?>
             </select>
         </div>
 
