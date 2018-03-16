@@ -12,6 +12,7 @@
     $user = $_POST['userSelect'];
     $table = "SELECT content FROM Posts
     WHERE author_id = $user";
+    echo $user;
     $tableResult = $conn->query($table);
 
     echo "<link rel='stylesheet' href='styles.css' type='text/css'>";
