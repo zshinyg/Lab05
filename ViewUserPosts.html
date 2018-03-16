@@ -34,7 +34,7 @@
             
                 if($tableResult->num_rows > 0){
                     while($row = $tableResult->fetch_assoc()) {
-                        echo "<option value='$row['user_id']'>";
+                        echo "<option value=$row[user_id]>";
                         echo $row['user_id'];
                         echo "</option>";
                     }
