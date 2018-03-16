@@ -15,7 +15,7 @@
     $tableResult = $conn->query($table);
 
     echo "<link rel='stylesheet' href='styles.css' type='text/css'>";
-
+    echo "<div>";
     echo "<table class='userTable'>";
     echo "<tr>";
     echo "<th>Posts</th>";
@@ -35,6 +35,7 @@
 
     echo "</tbody>";
     echo "</table>";
+    echo "</div>";
 
     $conn->close();
 ?>
