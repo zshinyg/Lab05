@@ -14,18 +14,22 @@
     $tableResult = $conn->query($table);
 
     echo "<table class='table'>";
-        echo "<th>Users</th>";
-        echo "<tbody>";
+    echo "<tr>";
+    echo "<th>Users</th>";
+    echo "<tbody>";
+    echo "</tr>";
 
     if($tableResult->num_rows > 0){
         while($row = $tableResult->fetch_assoc()) {
-            echo "<tr>" . $row['user_id'] . "</tr>";
+            echo "<tr>";
+            echo "<td align='center'>" . $row['user_id'] . "</td>";
+            echo "</tr>";
         }
     } else {
         echo "No usernames have been created.";
     }
 
-        echo "</tbody>";
+    echo "</tbody>";
     echo "</table>";
 
     $conn->close();
