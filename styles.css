@@ -40,3 +40,9 @@ body {
 .btn {
     background-color: dimgrey;
 }
+
+.table {
+    border: 1px solid steelblue;
+    border-style: solid;
+    border-width: medium;
+}

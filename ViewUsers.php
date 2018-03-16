@@ -13,6 +13,8 @@
     $table = "SELECT user_id FROM Users";
     $tableResult = $conn->query($table);
 
+    echo " <link rel='stylesheet' href='styles.css' type='text/css'> ";
+
     echo "<table class='table'>";
     echo "<tr>";
     echo "<th>Users</th>";
