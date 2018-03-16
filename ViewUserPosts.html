@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>User Posts</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,6 +11,55 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+
+        <div class="dropdown open">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                        Select User
+                    </button>
+            <div class="dropdown-menu" aria-labelledby="triggerId">
+                <?php 
+                    error_reporting(E_ALL);
+                    ini_set("display_errors", 1);
+                
+                    $conn = new mysqli("mysql.eecs.ku.edu", "c527g802", "rotaHea4", "c527g802");
+                
+                    /* check connection */
+                    if ($conn->connect_errno) {
+                        printf("Connect failed: %s\n", $conn->connect_error);
+                        exit();
+                    }
+                
+                    $table = "SELECT user_id FROM Users";
+                    $tableResult = $conn->query($table);
+                
+                    echo "<link rel='stylesheet' href='styles.css' type='text/css'>";
+                
+                    echo "<table class='userTable'>";
+                    echo "<tr>";
+                    echo "<th>Users</th>";
+                    echo "<tbody>";
+                    echo "</tr>";
+                
+                    if($tableResult->num_rows > 0){
+                        while($row = $tableResult->fetch_assoc()) {
+                            echo "<button class="dropdown-item">";
+                            echo   $row['user_id'];
+                            echo </button>;
+                        }
+                    } else {
+                        echo "No usernames have been created.";
+                    }
+                
+                    echo "</tbody>";
+                    echo "</table>";
+                
+                    $conn->close();
+                ?>
+               
+            </div>
+        </div>
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
