@@ -17,7 +17,9 @@
                     aria-expanded="false">
                         Select User
                     </button>
-            <div class="dropdown-menu" aria-labelledby="triggerId">
+            <div class="form-group">
+              <label for="">Select User</label>
+              <select class="form-control" name="userSelect" id="userSelect">
                 <?php 
                     error_reporting(E_ALL);
                     ini_set("display_errors", 1);
@@ -38,9 +40,9 @@
                 
                     if($tableResult->num_rows > 0){
                         while($row = $tableResult->fetch_assoc()) {
-                            echo "<button class="dropdown-item">";
-                            echo   $row['user_id'];
-                            echo </button>;
+                            echo "<option value='$row['user_id']'>";
+                            echo $row['user_id'];
+                            echo "</option>";
                         }
                     } else {
                         echo "No usernames have been created.";
@@ -48,8 +50,12 @@
                                 
                     $conn->close();
                 ?>
-               
+
+              </select>
             </div>
+
+               
+          
         </div>
 
         <!-- Optional JavaScript -->
