@@ -13,9 +13,9 @@
     $table = "SELECT user_id FROM Users";
     $tableResult = $conn->query($table);
 
-    echo " <link rel='stylesheet' href='styles.css' type='text/css'> ";
+    echo "<link rel='stylesheet' href='styles.css' type='text/css'>";
 
-    echo "<table>";
+    echo "<table class='userTable'>";
     echo "<tr>";
     echo "<th>Users</th>";
     echo "<tbody>";
