@@ -12,14 +12,21 @@
 
     $table = "SELECT user_id FROM Users";
     $tableResult = $conn->query($table);
-    
+
+    echo "<table class='table'>";
+        echo "<th>Users</th>";
+        echo "<tbody>";
+
     if($tableResult->num_rows > 0){
         while($row = $tableResult->fetch_assoc()) {
-            echo $row['user_id'] . "<br>";
+            echo "<tr>" . $row['user_id'] . "</tr>";
         }
     } else {
         echo "No usernames have been created.";
     }
+
+        echo "</tbody>";
+    echo "</table>";
 
     $conn->close();
 ?>
