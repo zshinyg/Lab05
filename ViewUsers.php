@@ -15,7 +15,7 @@
 
     echo " <link rel='stylesheet' href='styles.css' type='text/css'> ";
 
-    echo "<table class='table'>";
+    echo "<table>";
     echo "<tr>";
     echo "<th>Users</th>";
     echo "<tbody>";
