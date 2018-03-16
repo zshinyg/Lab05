@@ -41,8 +41,11 @@ body {
     background-color: dimgrey;
 }
 
-.userTable {
+table, th, td {
+    color: snow;
     border: 1px solid steelblue;
     border-style: solid;
     border-width: medium;
+    border-collapse: collapse;
+    padding: 15px;
 }
