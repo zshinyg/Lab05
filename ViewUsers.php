@@ -18,8 +18,8 @@
     echo "<table class='userTable'>";
     echo "<tr>";
     echo "<th>Users</th>";
-    echo "<tbody>";
     echo "</tr>";
+    echo "<tbody>";
 
     if($tableResult->num_rows > 0){
         while($row = $tableResult->fetch_assoc()) {

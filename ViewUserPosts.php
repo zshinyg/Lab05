@@ -11,8 +11,7 @@
     }
     $user = $_POST['userSelect'];
     $table = "SELECT content FROM Posts
-    WHERE author_id = $user";
-    echo $user;
+    WHERE author_id = '$user'";
     $tableResult = $conn->query($table);
 
     echo "<link rel='stylesheet' href='styles.css' type='text/css'>";
@@ -20,8 +19,9 @@
     echo "<table class='userTable'>";
     echo "<tr>";
     echo "<th>Posts</th>";
-    echo "<tbody>";
     echo "</tr>";
+    echo "<tbody>";
+
 
     if($tableResult->num_rows > 0){
         while($row = $tableResult->fetch_assoc()) {
